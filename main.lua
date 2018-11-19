@@ -7,6 +7,13 @@ local title = display.newText("Wifi Manager Plugin", display.contentCenterX, 40,
 title:setFillColor(0)
 local passwordField = native.newTextField( display.contentCenterX, 80, 180, 30 )
 passwordField.placeholder = "Password for Network"
+
+local options =
+{
+   appPermission = "android.permission.ACCESS_WIFI_STATE"
+}
+native.showPopup( "requestAppPermission", options )
+
 local function onRowRenderNetworkList( event )
 
     -- Get reference to the row group
